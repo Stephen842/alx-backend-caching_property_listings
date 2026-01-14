@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   postgres:
-    image: postgres:15
+    image: postgres:latest
     container_name: postgres_db
     environment:
       POSTGRES_DB: property_db
@@ -18,6 +18,9 @@ services:
     container_name: redis_cache
     ports:
       - "6379:6379"
+    volumes:
+      - redis_data:/data
 
 volumes:
   postgres_data:
+  redis_data:
